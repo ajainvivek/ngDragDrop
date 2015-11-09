@@ -1,6 +1,10 @@
 ## Install
 
-You can download all necessary ngDragDrop files manually
+You can download all necessary ngDragDrop files manually or via
+
+```bash
+bower install ngDragDrop
+```
 
 ### [Demo](http://embed.plnkr.co/VtW4K2/preview)
 
