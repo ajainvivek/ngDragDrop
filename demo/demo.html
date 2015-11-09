@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="demo">
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS Drag Drop directive demo</title>
+
+    <!-- TODO: Include Angular from Bower components -->
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../dist/ngDragDrop.css">
+    <link rel="stylesheet" href="demo.css">
+  </head>
+  <body>
+    <div class="container" ng-controller="mainCtrl">
+      <h1 class="text-muted">Demo</h1>
+
+      <div class="usage row">
+        <h4>Simple usage</h4>
+        <p>This is a simple usage of the drag drop directive</p>
+        <pre>&lt;ng-drag-drop dropTo="#drop-zone"&gt;&lt;/ng-drag-drop&gt;</pre>
+        <h4>Results</h4>
+        <div class="drag_container">
+          <h4>Draggables</h4>
+          <div ng-drag-drop dropTo="#drop-zone" styles="{{styles}}" on-drag="dragCallback(event)" on-drop="dropCallback(event)" on-over="overCallback(event)">
+            <div class="draggable-item" dragIt="true">Drag Item A</div>
+            <div class="draggable-item" dragIt="true">Drag Item B</div>
+            <div class="draggable-item" dragIt="false">Fixed Item C</div>
+          </div>
+        </div>
+        <div class="drop_container">
+          <h4>Drop Zone</h4>
+          <div id="drop-zone">
+          </div>
+        </div>
+              </div>
+    </div>
+
+    <script src="../dist/ngDragDrop.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>

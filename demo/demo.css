@@ -1,0 +1,45 @@
+.usage {
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.09);
+  border-radius: 5px;
+}
+
+#draggables {
+	float: left;
+	height: 100%;
+}
+
+.draggable-item {
+	height: 100px;
+	width: 100px;
+	background: #ccc;
+	margin: 10px auto;
+	text-align: center;
+	line-height: 100px;
+}
+
+.drag_container {
+	float: left;
+	width: 300px;
+	margin: 10px;
+	background: #ffe;
+	text-align: center;
+}
+
+.drop_container {
+	float: left;
+	width: 300px;
+	height: 100%;
+	margin: 10px;
+	background: #efe;
+	text-align: center;
+}
+
+
+#drop-zone {
+	height: 100%;
+	min-height: 200px;
+	width: 100%;
+	padding: 20px;
+}
+
