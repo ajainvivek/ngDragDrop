@@ -5,9 +5,14 @@
     "Ajain Vivek <ajainvivek07@gmail.com>"
   ],
   "description": "Angular Drag and Drop Directive",
-  "main": "dist/ngDragDrop.js, dist/ngDragDrop.js",
+  "main": "dist/ngDragDrop.js",
   "license": "MIT",
   "private": false,
+  "keywords": [
+    "dragdrop",
+    "ngDragDrop",
+    "angular drag drop"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
