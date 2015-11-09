@@ -2,6 +2,7 @@
 
 You can download all necessary ngDragDrop files manually
 
+### [Demo](http://embed.plnkr.co/VtW4K2/preview)
 
 ## Usage
 
