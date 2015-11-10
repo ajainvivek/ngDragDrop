@@ -89,9 +89,12 @@
             };
 
             for (var i = 0; i < dragElems.length; i++) {
-              dragElems[i].addEventListener('dragstart', onDragStart);
-              dragElems[i].addEventListener('drag', onDrag);
-              dragElems[i].addEventListener('dragend', onDragEnd);
+              angular.element(dragElems[i]).off('dragstart');
+              angular.element(dragElems[i]).off('drag');
+              angular.element(dragElems[i]).off('dragend');
+              angular.element(dragElems[i]).on('dragstart', onDragStart);
+              angular.element(dragElems[i]).on('drag', onDrag);
+              angular.element(dragElems[i]).on('dragend', onDragEnd);
             }
           },
           bindDropEvents: function (scope, dropZone, listeners) {
@@ -99,20 +102,22 @@
             var defaults = publicMethods.getDefaults();
             
             var onDragEnter = function (event) {
+              event.preventDefault();
+              event.stopPropagation();
               self.currentDropElement = angular.element(event.target);
               angular.element(event.target).css(defaults.styles.droppables.onEnter);
-              event.preventDefault();
             };
 
             var onDragOver = function (event) {
+              event.preventDefault();
               listeners.onOver({event: event});
               //Allow moves
               event.dataTransfer.dropEffect = "move";
-              event.preventDefault();
               return false; 
             };
 
             var onDragLeave = function (event) {
+              event.preventDefault();
               angular.element(event.target).css(defaults.styles.droppables.onLeave);
             };
 
@@ -123,13 +128,16 @@
                 self.currentDropElement = {}; 
                 self.currentDragElement = {};
               }, 10);
-             
             };
 
-            dropZone.addEventListener('drop', onDrop);
-            dropZone.addEventListener('dragenter', onDragEnter);
-            dropZone.addEventListener('dragleave', onDragLeave);
-            dropZone.addEventListener('dragover', onDragOver);
+            angular.element(dropZone).off('drop');
+            angular.element(dropZone).off('dragenter');
+            angular.element(dropZone).off('dragleave');
+            angular.element(dropZone).off('dragover');
+            angular.element(dropZone).on('drop', onDrop);
+            angular.element(dropZone).on('dragenter', onDragEnter);
+            angular.element(dropZone).on('dragleave', onDragLeave);
+            angular.element(dropZone).on('dragover', onDragOver);
           },
           setDraggable: function(scope, elem, listeners) {
             var dragItems = angular.element(elem.querySelectorAll("[dragIt='true']"));
