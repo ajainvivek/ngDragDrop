@@ -133,13 +133,19 @@
           },
           setDraggable: function(scope, elem, listeners) {
             var dragItems = angular.element(elem.querySelectorAll("[dragIt='true']"));
-            dragItems.attr("draggable", true);
-            this.bindDragEvents(scope, dragItems, listeners);
+            if (dragItems.length !== 0) {
+              dragItems.attr("draggable", true);
+              this.bindDragEvents(scope, dragItems, listeners);
+            }
             return dragItems;
           },
           setDroppable: function (scope, elem, listeners) {
             var style = elem.attr("dropTo");
-            this.bindDropEvents(scope, document.querySelectorAll(style)[0], listeners);
+            if (document.querySelectorAll(style).length !== 0) {
+              this.bindDropEvents(scope, document.querySelectorAll(style)[0], listeners);
+            } else {
+              console.error("Drop Zone not provided!!!");
+            }
           }
         };
 
@@ -174,16 +180,18 @@
       link: function(scope, elem, attrs) {
         var ngDragDropScope = angular.isDefined(scope.ngDragDropScope) ? scope.ngDragDropScope : 'noScope';
         var defaults = ngDragDrop.getDefaults();
-        ngDragDrop.setup({
-          elem : elem,
-          attrs : attrs,
-          scope: scope,
-          listeners : {
-            onDrag : scope.onDrag || function () {}, 
-            onDrop : scope.onDrop || function () {},
-            onOver : scope.onOver || function () {}
-          },
-          styles : JSON.parse(attrs.styles) || defaults.styles
+        scope.$watch(function () {
+          ngDragDrop.setup({
+            elem : elem,
+            attrs : attrs,
+            scope: scope,
+            listeners : {
+              onDrag : scope.onDrag || function () {}, 
+              onDrop : scope.onDrop || function () {},
+              onOver : scope.onOver || function () {}
+            },
+            styles : attrs.styles ? JSON.parse(attrs.styles) : defaults.styles
+          });
         });
       }
     };

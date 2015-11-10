@@ -2,7 +2,7 @@
   "name": "angular-ngDragDrop",
   "version": "1.0",
   "description": "Angular HTML5 Drag and Drop Directive",
-  "repository": "git@github.com:ajainvivek/ngDragDrop.git",
+  "repository": "https://github.com/ajainvivek/ngDragDrop",
   "main": "dist/ngDragDrop.js",
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js test"
