@@ -6,7 +6,7 @@ You can download all necessary ngDragDrop files manually or via
 bower install ngDragDrop
 ```
 
-### [Demo](http://embed.plnkr.co/VtW4K2/preview)
+### [Demo](http://plnkr.co/edit/VtW4K2?p=preview)
 
 ## Usage
 
